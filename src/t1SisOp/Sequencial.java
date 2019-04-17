@@ -7,25 +7,25 @@ public class Sequencial {
 	// ESTRUTURAS DE DADOS COMPARTILHADA
 
 	public static void main(String[] args) throws InterruptedException {
-		
+
 		for (int y = 0; y < 1; y++) {
 			Matriz matriz = new Matriz(SIZE);
 			// INICIALIZA OS ARRAYS A SEREM MULTIPLICADOS
-			
-			int k=1;
-			k = matriz.setMatriz(SIZE, k);
+
+			int k = 1;
+			k = matriz.setMatriz(SIZE);
 
 			// PREPARA PARA MEDIR TEMPO
 			long inicio = System.nanoTime();
 
 			// REALIZA A MULTIPLICACAO
-			//matriz.multiplica(k);
-			Thread t1 = new Thread(new MyThread(0, matriz.getMres(), matriz.getM1(), matriz.getM2(), k, matriz));
-			Thread t2 = new Thread(new MyThread(1, matriz.getMres(), matriz.getM1(), matriz.getM2(), k, matriz));
-			
+			// matriz.multiplica(k);
+			Thread t1 = new Thread(new MyThread(0, matriz));
+			Thread t2 = new Thread(new MyThread(1, matriz));
+
 			t1.start();
 			t2.start();
-			
+
 			t1.join();
 			t2.join();
 
@@ -33,7 +33,7 @@ public class Sequencial {
 			long fim = System.nanoTime();
 			double total = (fim - inicio) / 1000000000.0;
 
-			if(!matriz.isCorrect(SIZE, k)) {
+			if (!matriz.isCorrect(SIZE, k)) {
 				System.err.println("ERRO");
 			}
 
