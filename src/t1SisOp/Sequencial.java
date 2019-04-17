@@ -11,9 +11,7 @@ public class Sequencial {
 		for (int y = 0; y < 1; y++) {
 			Matriz matriz = new Matriz(SIZE);
 			// INICIALIZA OS ARRAYS A SEREM MULTIPLICADOS
-
-			int k = 1;
-			k = matriz.setMatriz(SIZE);
+			matriz.setMatriz(SIZE);
 
 			// PREPARA PARA MEDIR TEMPO
 			long inicio = System.nanoTime();
@@ -33,7 +31,7 @@ public class Sequencial {
 			long fim = System.nanoTime();
 			double total = (fim - inicio) / 1000000000.0;
 
-			if (!matriz.isCorrect(SIZE, k)) {
+			if (!matriz.isCorrect(SIZE)) {
 				System.err.println("ERRO");
 			}
 

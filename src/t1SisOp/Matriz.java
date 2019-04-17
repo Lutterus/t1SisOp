@@ -11,7 +11,7 @@ public class Matriz {
 		this.mres = new int[SIZE][SIZE];
 	}
 
-	public int setMatriz(int SIZE) {
+	public void setMatriz(int SIZE) {
 		int k = 1;
 		for (int i = 0; i < SIZE; i++) {
 			for (int j = 0; j < SIZE; j++) {
@@ -32,8 +32,6 @@ public class Matriz {
 			}
 			k++;
 		}
-
-		return k;
 	}
 
 	public void setPos(int x, int y, int z) {
@@ -64,8 +62,9 @@ public class Matriz {
 		return m2.length;
 	}
 
-	public boolean isCorrect(int SIZE, int k) {
+	public boolean isCorrect(int SIZE) {
 		// VERIFICA SE O RESULTADO DA MULTIPLICACAO ESTA CORRETO
+		int k;
 		for (int i = 0; i < SIZE; i++) {
 			k = SIZE * (i + 1);
 			for (int j = 0; j < SIZE; j++) {
@@ -73,17 +72,21 @@ public class Matriz {
 				if (i % 2 == 0) {
 					if (j % 2 == 0) {
 						if (mres[i][j] != k_col)
+							System.out.println("deveria estar: " + mres[i][j] + " esta: " + k_col);
 							return false;
 					} else {
 						if (mres[i][j] != -k_col)
+							System.out.println("deveria estar: " + mres[i][j] + " esta: " + -k_col);
 							return false;
 					}
 				} else {
 					if (j % 2 == 0) {
 						if (mres[i][j] != -k_col)
+							System.out.println("deveria estar: " + mres[i][j] + " esta: " + -k_col);
 							return false;
 					} else {
 						if (mres[i][j] != k_col)
+							System.out.println("deveria estar: " + mres[i][j] + " esta: " + k_col);
 							return false;
 					}
 				}
