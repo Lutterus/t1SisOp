@@ -1,11 +1,11 @@
 package t1SisOp;
 
-public class MyThread implements Runnable {
+public class MyThreadTwo implements Runnable {
 	private int threadID;
 	private int id;
 	Matriz matriz;
 
-	public MyThread(int id, Matriz matriz) {
+	public MyThreadTwo(int id, Matriz matriz) {
 		this.threadID = id;
 		this.matriz = matriz;
 	}
@@ -13,8 +13,7 @@ public class MyThread implements Runnable {
 	@Override
 	public void run() {
 		if (threadID == 0) {
-			System.out.println("aaaaaa");
-			for (int i = 0; i < (matriz.getMresSize()) / 2; i++) {
+			for (int i = 0; i < matriz.getMresSize(); i++) {
 				for (int j = 0; j < (matriz.getMresSize() / 2); j++) {
 					for (int k = 0; k < matriz.getM2Size(); k++) {
 						//System.out.println("i: " + i + " j: " + j + " k: " + k);
@@ -23,10 +22,10 @@ public class MyThread implements Runnable {
 					}
 				}
 			}
+			
 		} else {
-			System.out.println("bbbbbb");
-			for (int i = (matriz.getMresSize() / 2); i < matriz.getMresSize(); i++) {
-				for (int j = (matriz.getMresSize()) / 2; j < matriz.getMresSize(); j++) {
+			for (int i = 0; i < matriz.getMresSize(); i++) {
+				for (int j = (matriz.getMresSize() / 2); j < matriz.getMresSize(); j++) {
 					for (int k = 0; k < matriz.getM2Size(); k++) {
 						//System.out.println("i: " + i + " j: " + j + " k: " + k);
 						// mres[i][j] += m1[i][k] * m2[k][j];
@@ -38,9 +37,14 @@ public class MyThread implements Runnable {
 
 			/*
 			 * 
-			 * for (int i = 0; i < mres.length; i++) { for (int j = 0; j < mres[0].length;
-			 * j++) { mres[i][j] = 0; for (k = 0; k < m2.length; k++) { mres[i][j] +=
-			 * m1[i][k] * m2[k][j]; } } }
+			 * for (int i = 0; i < mres.length; i++) { 
+			 * 	for (int j = 0; j < mres[0].length; j++) { 	
+			 * 		mres[i][j] = 0; 
+			 * 		for (k = 0; k < m2.length; k++) { 
+			 * 			mres[i][j] +=m1[i][k] * m2[k][j]; 
+			 * 		} 
+			 * 	} 
+			 * }
 			 */
 		}
 

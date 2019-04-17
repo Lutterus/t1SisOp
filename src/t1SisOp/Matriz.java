@@ -71,23 +71,31 @@ public class Matriz {
 				int k_col = k * (j + 1);
 				if (i % 2 == 0) {
 					if (j % 2 == 0) {
-						if (mres[i][j] != k_col)
-							System.out.println("deveria estar: " + mres[i][j] + " esta: " + k_col);
+						if (mres[i][j] != k_col) {
+							System.out.println("esta: " + mres[i][j] + " deveria estar: " + k_col);
 							return false;
+						}
+
 					} else {
-						if (mres[i][j] != -k_col)
-							System.out.println("deveria estar: " + mres[i][j] + " esta: " + -k_col);
+						if (mres[i][j] != -k_col) {
+							System.out.println("esta: " + mres[i][j] + " deveria estar: " + -k_col);
 							return false;
+						}
+
 					}
 				} else {
 					if (j % 2 == 0) {
-						if (mres[i][j] != -k_col)
-							System.out.println("deveria estar: " + mres[i][j] + " esta: " + -k_col);
+						if (mres[i][j] != -k_col) {
+							System.out.println("esta: " + mres[i][j] + " deveria estar: " + -k_col);
 							return false;
+						}
+
 					} else {
-						if (mres[i][j] != k_col)
-							System.out.println("deveria estar: " + mres[i][j] + " esta: " + k_col);
+						if (mres[i][j] != k_col) {
+							System.out.println("esta: " + mres[i][j] + " deveria estar: " + k_col);
 							return false;
+						}
+
 					}
 				}
 			}
